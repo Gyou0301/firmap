@@ -2,3 +2,22 @@
   html { height: 100% }
   body { height: 100% }
   #map { height: 100%; width: 100%}
+
+  #floatWindow{
+    display:block;
+    background-color: brown;
+    position:absolute;
+    top:100px;
+    left:100px;
+    width:500px;
+    height:400px;
+}
+
+  #open{
+    display: none;
+
+  }
+
+  a{
+    float:right
+  }
