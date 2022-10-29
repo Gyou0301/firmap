@@ -5,6 +5,10 @@
 <meta charset="UTF-8">
 <title>Sample_GoogleMap</title>
 <link rel ="stylesheet" href ="style.css">
+<script
+src="https://code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -13,14 +17,32 @@
 
 <script src="http://maps.google.com/maps/api/js?key=AIzaSyDCiHhzh19SuHZXpHb_tmGQM3TTa1-r7tw&language=ja"></script>
 
+
+
 <script>
-  var MyLatLng = new google.maps.LatLng(35.6811673, 139.7670516);
+  var MyLatLng = new google.maps.LatLng(35.168108, 136.885649);
   var Options = {
-   zoom: 15,      //地図の縮尺値
+   zoom: 12,      //地図の縮尺値
    center: MyLatLng,    //地図の中心座標
    mapTypeId: 'roadmap'   //地図の種類
   };
   var map = new google.maps.Map(document.getElementById('map'), Options);
+
+   // MARKERイメージを作成
+   markerImg = new google.maps.MarkerImage(
+            "firmap_picture/usericon.png",  // アイコン画像のパス
+            new google.maps.Size(74, 70),     // アイコン画像の表示させたい範囲（サイズ）
+            new google.maps.Point(0, 0),      // アイコン画像の表示させたい範囲の基準点（左上）
+            new google.maps.Point(37, 70),    // アイコン画像内のアンカー点の位置
+            new google.maps.Size(74, 70)      // アイコン画像の実際の表示サイズ
+        );
+        
+    // MARKERオブジェクトを作成
+    markerObj = new google.maps.Marker({
+            position: new google.maps.LatLng(35.137612, 136.889264), // アイコンのアンカー点の緯度・経度
+            map: map,                                           // 上で作成したMAPオブジェクトを指定
+            icon: markerImg                                        // 上で作成したMARKERイメージを指定
+        });
 </script>
 
 </body>
