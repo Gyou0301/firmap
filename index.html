@@ -13,6 +13,7 @@ crossorigin="anonymous"></script>
 
 <body>
 <div id="map"></div>
+<div id="open"><div id="floatWindow"><a class=close>×　</a></div></div>
 
 
 <script src="http://maps.google.com/maps/api/js?key=AIzaSyDCiHhzh19SuHZXpHb_tmGQM3TTa1-r7tw&language=ja"></script>
@@ -43,6 +44,22 @@ crossorigin="anonymous"></script>
             map: map,                                           // 上で作成したMAPオブジェクトを指定
             icon: markerImg                                        // 上で作成したMARKERイメージを指定
         });
+    
+    // クリックイベントの登録
+    google.maps.event.addListener(markerObj, 'click', function() {
+          clickMarker('BRISKです');   // クリックした時の動作内容
+        });
+    
+    // クリックした時の動作内容
+    function clickMarker(text) {
+      $("#open").fadeIn("fast");
+      return false;
+    }
+
+    $("#open a.close").click(function(){
+        $("#open").fadeOut("fast");
+        return false;
+    })
 </script>
 
 </body>
