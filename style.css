@@ -7,10 +7,8 @@
     display:block;
     background-color: brown;
     position:absolute;
-    top:100px;
-    left:100px;
-    width:500px;
-    height:400px;
+   height: 20%;
+   width: 20%;
 }
 
   #open{
