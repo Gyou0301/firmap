@@ -19,7 +19,7 @@ crossorigin="anonymous"></script>
 <script src="http://maps.google.com/maps/api/js?key=AIzaSyDCiHhzh19SuHZXpHb_tmGQM3TTa1-r7tw&language=ja"></script>
 
 
-
+<script type="text/javascript" src="Address.js"></script>
 <script>
   var MyLatLng = new google.maps.LatLng(35.168108, 136.885649);
   var Options = {
@@ -30,7 +30,7 @@ crossorigin="anonymous"></script>
   };
   var map = new google.maps.Map(document.getElementById('map'), Options);
 
-  /*const fs = require('fs');
+  /*const fs = require('fs');                                             //旭の努力１　Node.js
   let useraddress = JSON.parse(fs.readFileSync("Address.json",'utf8'));
   console.log(useraddress);
   
@@ -41,7 +41,9 @@ crossorigin="anonymous"></script>
   });
   
   //console.log(X); */
-  const url = "https://github.com/Gyou0301/firmap.git/Address.json";
+
+
+ /* const url = "https://github.com/Gyou0301/firmap.git";         //旭の努力２    getJSON urlから
   
   $.getJSON(url, function(useraddress){
  // JSONデータを受信した後に実行する処理
@@ -50,7 +52,24 @@ crossorigin="anonymous"></script>
     let Y = Address[1];
     let a = icongene(X,Y);
   });
-});
+});*/
+
+/*var useraddress = [
+    [35.137612,136.889264],
+    [35.176285,136.880314],
+    [35.154861,136.910500],
+    
+];
+
+var json = JSON.stringify(useraddress);
+//console.log(json);*/
+var useraddress = JSON.parse(json);
+
+useraddress.forEach(function(User){
+    let X = User[0];
+    let Y = User[1];
+    let a = icongene(X,Y);
+  });
   
     
     // クリックイベントの登録
