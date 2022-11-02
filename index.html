@@ -29,11 +29,10 @@ crossorigin="anonymous"></script>
    disableDefaultUI: true
   };
   var map = new google.maps.Map(document.getElementById('map'), Options);
- 
-  let useraddress = [
-    [35.137612,136.889264],
-    [35.176285,136.880314]
-  ];
+
+  /*const fs = require('fs');
+  let useraddress = JSON.parse(fs.readFileSync("Address.json",'utf8'));
+  console.log(useraddress);
   
   useraddress.forEach(function(Address){
     let X = Address[0];
@@ -41,11 +40,17 @@ crossorigin="anonymous"></script>
     let a = icongene(X,Y);
   });
   
-  //console.log(X);
+  //console.log(X); */
+  const url = "https://github.com/Gyou0301/firmap.git/Address.json";
   
-  
-  
-
+  $.getJSON(url, function(useraddress){
+ // JSONデータを受信した後に実行する処理
+ useraddress.forEach(function(Address){
+    let X = Address[0];
+    let Y = Address[1];
+    let a = icongene(X,Y);
+  });
+});
   
     
     // クリックイベントの登録
